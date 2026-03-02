@@ -42,35 +42,25 @@
                     <span>💬 0</span>
                 </div>
             </div>
-<style>
-    /* 커스디스 주변 테두리와 배경 꾸미기 */
-    #cusdis-wrapper {
-        background: #ffffff;
-        border: 1px solid #e3e3e3;
-        border-radius: 12px;
-        padding: 25px;
-        margin-top: 40px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* 은은한 그림자 */
-    }
+<div id="disqus_thread" style="margin-top: 50px; padding: 20px; background: white; border-radius: 8px; border: 1px solid #e3e3e3;"></div>
 
-    #cusdis-wrapper h3 {
-        font-size: 18px;
-        margin-bottom: 20px;
-        color: #292a32;
-        border-bottom: 2px solid #ff0558; /* 왓챠 핑크 포인트 */
-        display: inline-block;
-        padding-bottom: 5px;
-    }
-</style>
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="a8fce9d2-174d-4d96-8959-5f36de71e09e"
-  data-theme="light"
-  data-page-id="testhome"
-  data-page-url="https://mingoos99-ui.github.io/testhome/"
-  data-page-title="동인지감상평"
-></div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+<script>
+    /**
+    * 복사한 코드를 여기에 붙여넣으세요. 
+    * 단, 아래의 두 변수(PAGE_URL, PAGE_IDENTIFIER)를 수정하면 더 정확해집니다.
+    */
+    var disqus_config = function () {
+        this.page.url = 'https://mingoos99-ui.github.io/testhome/';  // 내 실제 사이트 주소
+        this.page.identifier = 'home'; // 이 페이지의 고유 이름
+    };
+
+    (function() { // 아래는 복사한 코드 그대로 두시면 됩니다.
+        var d = document, s = d.createElement('script');
+        s.src = 'https://내-쇼트네임.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
 
         </section>
     </main>
