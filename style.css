@@ -95,3 +95,14 @@ body {
     border-radius: 8px; /* 모서리 둥글게 */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* 살짝 떠 있는 느낌 */
 }
+/* 디스커스 박스의 높이를 조절해서 하단 광고 노출 최소화 */
+#disqus_thread {
+    position: relative;
+    overflow: hidden; /* 영역 밖으로 나가는 광고 요소를 가림 */
+    padding-bottom: 0px !important;
+}
+
+/* 디스커스 내부의 특정 로고나 링크 숨기기 시도 (일부 적용) */
+iframe[src*="disqus.com/embed/comments"] {
+    margin-bottom: -54px !important; /* 하단 로고 영역만큼 위로 올림 */
+}
