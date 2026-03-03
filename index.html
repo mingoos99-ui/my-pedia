@@ -718,6 +718,9 @@ function toggleComments() {
         wrapper.style.marginTop = '15px';
         wrapper.style.border = '1px solid #eee'; // 영역 구분선
         text.innerText = '💬 코멘트창 닫기';
+        setTimeout(function() {
+            wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100); 
     } else {
         wrapper.style.maxHeight = '0px';
         wrapper.style.marginTop = '0px';
