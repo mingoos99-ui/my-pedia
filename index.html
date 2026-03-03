@@ -708,20 +708,23 @@
     })();
 
     // 부드러운 토글 함수
-    function toggleComments() {
-        var wrapper = document.getElementById('disqus_wrapper');
-        var text = document.getElementById('toggle-text');
-        
-        if (wrapper.style.maxHeight === '0px' || wrapper.style.maxHeight === '') {
-            wrapper.style.maxHeight = '2000px'; // 충분히 큰 값으로 설정
-            wrapper.style.marginTop = '5px';
-            text.innerText = '💬 코멘트창 닫기';
-        } else {
-            wrapper.style.maxHeight = '0px';
-            wrapper.style.marginTop = '0px';
-            text.innerText = '💬 코멘트 작성하기';
-        }
+function toggleComments() {
+    var wrapper = document.getElementById('disqus_wrapper');
+    var text = document.getElementById('toggle-text');
+    
+    if (wrapper.style.maxHeight === '0px' || wrapper.style.maxHeight === '') {
+        // ✅ 여기서 설정한 500px이 스크롤이 생기는 기준 높이가 됩니다.
+        wrapper.style.maxHeight = '700px'; 
+        wrapper.style.marginTop = '15px';
+        wrapper.style.padding = '10px'; // 내부 여백 살짝 추가
+        text.innerText = '💬 코멘트창 닫기';
+    } else {
+        wrapper.style.maxHeight = '0px';
+        wrapper.style.marginTop = '0px';
+        wrapper.style.padding = '0px';
+        text.innerText = '💬 코멘트 작성하기';
     }
+}
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </section>
