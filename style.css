@@ -187,3 +187,18 @@ iframe[src*="disqus.com/embed/comments"] {
     background-color: #ccc;
     border-radius: 10px;
 }
+/* 스크롤바 전체 너비 */
+#disqus_wrapper::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* 스크롤바 막대(움직이는 부분) */
+#disqus_wrapper::-webkit-scrollbar-thumb {
+    background: #e0e0e0; /* 연한 회색 */
+    border-radius: 10px;
+}
+
+/* 스크롤바 배경 */
+#disqus_wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
