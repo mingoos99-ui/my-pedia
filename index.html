@@ -685,13 +685,13 @@
         </div>
     </div>
 
-    <div class="card-comment-area" style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 12px;">
+    <div class="card-comment-area" style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 5px;">
         <div id="comment-toggle-btn" onclick="toggleComments()" style="cursor: pointer; display: inline-block;">
             <span id="toggle-text" style="color: #ff0558; font-weight: bold; font-size: 14px;">💬 코멘트 작성하기</span>
         </div>
 
         <div id="disqus_wrapper" style="max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; margin-top: 0;">
-            <div style="padding-top: 20px;">
+            <div style="padding-top: 5px;">
                 <div id="disqus_thread"></div>
             </div>
         </div>
@@ -714,7 +714,7 @@
         
         if (wrapper.style.maxHeight === '0px' || wrapper.style.maxHeight === '') {
             wrapper.style.maxHeight = '2000px'; // 충분히 큰 값으로 설정
-            wrapper.style.marginTop = '15px';
+            wrapper.style.marginTop = '5px';
             text.innerText = '💬 코멘트창 닫기';
         } else {
             wrapper.style.maxHeight = '0px';

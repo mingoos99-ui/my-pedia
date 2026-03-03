@@ -9,7 +9,7 @@ body {
 /* 공통 컨테이너: 모든 섹션의 너비를 하나로 통일 */
 .container {
     /* 핵심: max-width를 사용하면 모바일에서 자동으로 줄어듭니다 */
-    max-width: 640px;      
+    max-width: 600px;      
     width: 100%;           /* 화면이 640px보다 작을 때는 꽉 차게 */
     margin: 0 auto;        /* 중앙 정렬 */
     padding: 0 20px;       /* 모바일 양옆 여백 (중요!) */
