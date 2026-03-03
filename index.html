@@ -749,5 +749,32 @@
             });
         });
     </script>
+
+<div id="back-to-top" onclick="scrollToTop()">
+    <span class="arrow">↑</span>
+    <span class="top-text">맨 위로</span>
+</div>
+
+<script>
+    // 1. 스크롤 위치에 따라 버튼 보이기/숨기기
+    window.onscroll = function() {
+        var topBtn = document.getElementById("back-to-top");
+        // 300px 이상 내려오면 버튼이 나타납니다.
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            topBtn.style.display = "flex";
+        } else {
+            topBtn.style.display = "none";
+        }
+    };
+
+    // 2. 클릭 시 상단으로 부드럽게 이동
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
 </body>
 </html>

@@ -203,3 +203,39 @@ iframe[src*="disqus.com/embed/comments"] {
 #disqus_wrapper::-webkit-scrollbar-track {
     background: transparent;
 }
+
+#back-to-top {
+    position: fixed;        /* 화면에 고정 */
+    bottom: 30px;           /* 하단에서 30px 띄움 */
+    right: 30px;            /* 우측에서 30px 띄움 */
+    display: none;          /* 처음에는 숨김 */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 50%;      /* 동그란 버튼 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 살짝 떠 있는 느낌 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;          /* 다른 요소보다 위에 표시 */
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px); /* 마우스 올리면 살짝 위로 이동 */
+    background-color: #f9f9f9;
+}
+
+.arrow {
+    font-size: 20px;
+    color: #ff0558;          /* 왓챠 핑크 색상 */
+    font-weight: bold;
+}
+
+.top-text {
+    font-size: 10px;
+    color: #999;
+    margin-top: -2px;
+}
