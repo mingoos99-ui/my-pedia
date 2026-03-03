@@ -253,7 +253,7 @@ iframe[src*="disqus.com/embed/comments"] {
     font-size: 14px;
     z-index: 9999;
     display: none; /* 평소엔 숨김 */
-    animation: fadeInOut 4s ease-in-out;
+    animation: fadeInOut 4s ease-in-out forwards;
 }
 
 @keyframes fadeInOut {
