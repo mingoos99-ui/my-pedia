@@ -698,34 +698,44 @@
 </div>
 
 <script>
-function toggleComments() {
-    var wrapper = document.getElementById('disqus_wrapper');
-    var text = document.getElementById('toggle-text');
-    
-    // 닫혀있는 상태일 때 (열기 동작)
-    if (wrapper.style.maxHeight === '0px' || wrapper.style.maxHeight === '') {
-        wrapper.style.maxHeight = '700px'; 
-        wrapper.style.marginTop = '15px';
-        wrapper.style.padding = '5px';           /* 열릴 때만 안쪽 여백 생성 */
-        wrapper.style.border = '1px solid #eee'; /* 열릴 때만 테두리 생성 */
-        wrapper.style.borderRadius = '8px';
-        wrapper.style.overflowY = 'auto';        /* 열렸을 때만 스크롤 허용 */
-        text.innerText = '💬 코멘트창 닫기';
+    // 3. Disqus 로드 스크립트 (함수 밖으로 빼서 페이지 로드 시 바로 실행되게 함)
+    (function() { 
+        var d = document, s = d.createElement('script');
+        s.src = 'https://donginji-pedia.disqus.com/embed.js'; 
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+
+    // 4. 부드러운 토글 및 스크롤 함수
+    function toggleComments() {
+        var wrapper = document.getElementById('disqus_wrapper');
+        var text = document.getElementById('toggle-text');
         
-        setTimeout(function() {
-            wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 300);
-    } 
-    // 열려있는 상태일 때 (닫기 동작)
-    else {
-        wrapper.style.maxHeight = '0px';
-        wrapper.style.marginTop = '0px';
-        wrapper.style.padding = '0';             /* 닫을 때 여백 제거 (중요!) */
-        wrapper.style.border = '1px solid transparent'; /* 테두리 투명화 */
-        wrapper.style.overflowY = 'hidden';      /* 닫을 때 스크롤 숨김 */
-        text.innerText = '💬 코멘트 작성하기';
+        // 열기 액션
+        if (wrapper.style.maxHeight === '0px' || wrapper.style.maxHeight === '') {
+            wrapper.style.maxHeight = '700px';       // 스크롤 생기는 기준 높이
+            wrapper.style.marginTop = '15px';
+            wrapper.style.padding = '5px';           // 열릴 때만 안쪽 여백
+            wrapper.style.border = '1px solid #eee'; // 열릴 때만 테두리
+            wrapper.style.borderRadius = '8px';
+            wrapper.style.overflowY = 'auto';        // 열렸을 때만 스크롤 허용
+            text.innerText = '💬 코멘트창 닫기';
+            
+            // 화면 자동 스크롤
+            setTimeout(function() {
+                wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        } 
+        // 닫기 액션
+        else {
+            wrapper.style.maxHeight = '0px';
+            wrapper.style.marginTop = '0px';
+            wrapper.style.padding = '0';             // 닫을 때 여백 제거
+            wrapper.style.border = '1px solid transparent'; // 테두리 투명
+            wrapper.style.overflowY = 'hidden';      // 닫을 때 내용 숨김
+            text.innerText = '💬 코멘트 작성하기';
+        }
     }
-}
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </section>
