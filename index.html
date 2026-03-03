@@ -867,7 +867,14 @@
 </div>
 
 <script>
-    // 3. Disqus 로드 스크립트 (함수 밖으로 빼서 페이지 로드 시 바로 실행되게 함)
+    // 1. 디스커스 설정 (과거 댓글 불러오기 및 식별자 고정)
+    var disqus_config = function () {
+        // 주소가 바뀌었어도 예전 주소의 데이터를 가져오도록 강제 지정
+        this.page.url = "https://mingoos99-ui.github.io/testhome/"; 
+        this.page.identifier = "/testhome/"; 
+    };
+
+    // 2. Disqus 로드 스크립트
     (function() { 
         var d = document, s = d.createElement('script');
         s.src = 'https://donginji-pedia.disqus.com/embed.js'; 
