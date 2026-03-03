@@ -21,10 +21,10 @@
             <div class="user-info">
                 <h2>백동진</h2>
                 <p>안녕하세요. 동인지 평론하는 백동진입니다.</p>
-                <p>작성한 코멘트 <span>21</span></p>
+                <p>💬 작성한 코멘트 <span>21</span></p>
             </div>
         </section>
-
+<p>✨별점을 주면서 놀 수 있습니다.(반영되진 않음..)</p>
         <hr>
 
         <section class="comment-grid">
@@ -741,14 +741,27 @@
         </section>
     </main>
 
-    <script>
-        // 모든 별점 입력 요소에 이벤트를 연결합니다.
-        document.querySelectorAll('.star-rating input').forEach(star => {
-            star.addEventListener('change', () => {
-                alert(`와! ${star.value}점을 주셨네요! 감사합니다.`);
-            });
+<script>
+    // 1. 토스트 메시지를 보여주는 함수 (새로 추가)
+function showToast(message) {
+    var toast = document.getElementById("custom-alert");
+    toast.innerText = message;
+    toast.style.display = "block";
+    
+    // ✅ 4초(4000ms) 뒤에 요소 숨김
+    setTimeout(function() {
+        toast.style.display = "none";
+    }, 4000); 
+}
+
+    // 2. 별점 이벤트 연결 부분 (수정됨)
+    document.querySelectorAll('.star-rating input').forEach(star => {
+        star.addEventListener('change', () => {
+            // ✅ alert 대신 showToast를 사용합니다!
+            showToast(`와! ${star.value}점을 주셨네요! 감사합니다. 💖`);
         });
-    </script>
+    });
+</script>
 
 <div id="back-to-top" onclick="scrollToTop()">
     <span class="arrow">↑</span>
@@ -775,6 +788,6 @@
         });
     }
 </script>
-
+<div id="custom-alert" class="toast-message"></div>
 </body>
 </html>
