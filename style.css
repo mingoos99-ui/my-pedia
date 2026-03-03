@@ -295,18 +295,23 @@ iframe[src*="disqus.com/embed/comments"] {
     100% { transform: scale(1); }
 }
 
-/* 화면 너비가 768px 이하(보통 태블릿/폰)일 때 적용 */
+/* 화면이 768px보다 작을 때 (모바일/태블릿) */
 @media (max-width: 768px) {
-    .comment-grid {
-        display: block;    /* 그리드 대신 한 줄씩 나오게 변경 */
-    }
-    
-    .comment-card {
-        margin-bottom: 20px;
+    .comment-content {
+        display: flex;
+        flex-direction: column; /* ⬅️ 이미지와 글자를 가로가 아닌 '세로'로 배치 */
+        align-items: center;    /* 가운데 정렬 */
     }
 
-    .rating-like-container {
-        flex-direction: column; /* 좋아요와 별점을 아래위로 배치 */
-        align-items: flex-start !important;
+    .comment-pic {
+        width: 100%;            /* ⬅️ 모바일에서는 카드의 꽉 찬 너비를 사용 */
+        max-width: none;        /* 제한 해제 */
+        margin-right: 0;        /* 가로 배치용 여백 제거 */
+        margin-bottom: 15px;    /* 대신 아래쪽(글자와의 간격) 여백 추가 */
+    }
+    
+    .comment-text {
+        width: 100%;            /* 글자 박스도 꽉 차게 */
+        word-break: break-all;  /* 긴 단어도 자동 줄바꿈 */
     }
 }
