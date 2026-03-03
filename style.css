@@ -294,3 +294,19 @@ iframe[src*="disqus.com/embed/comments"] {
     50% { transform: scale(0.9); }
     100% { transform: scale(1); }
 }
+
+/* 화면 너비가 768px 이하(보통 태블릿/폰)일 때 적용 */
+@media (max-width: 768px) {
+    .comment-grid {
+        display: block;    /* 그리드 대신 한 줄씩 나오게 변경 */
+    }
+    
+    .comment-card {
+        margin-bottom: 20px;
+    }
+
+    .rating-like-container {
+        flex-direction: column; /* 좋아요와 별점을 아래위로 배치 */
+        align-items: flex-start !important;
+    }
+}
