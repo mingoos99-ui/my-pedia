@@ -119,31 +119,27 @@ body {
     flex-wrap: nowrap;      /* 절대 줄바꿈 되지 않게 함 */
 }
 
+.star-rating label {
+    font-size: 18px;    /* 별 크기 조정 (원하는 대로) */
+    color: #dbdbdb;    /* ⬅️ 여기서 안 채워진 별 색상을 바꾸세요! (연회색) */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
 /* 2. 별점 컨테이너 */
+/* 별점 반전 로직 (오른쪽 별을 누르면 왼쪽 별까지 다 채워지게 함) */
 .star-rating {
     display: flex;
-    flex-direction: row-reverse; /* 별이 오른쪽부터 채워지는 기능 유지 */
-    justify-content: flex-end;   /* row-reverse 사용 시 정렬 방향 보정 */
-    line-height: 1;              /* 별의 높이 여백 제거 */
+    flex-direction: row-reverse; /* 별을 오른쪽부터 배치 */
+    justify-content: flex-end;
 }
 
-/* 3. 별 모양 레이블 */
-.star-rating label {
-    font-size: 1.2rem;   /* 문구 크기에 맞춰 적당히 조절 */
-    color: #ccc;
-    cursor: pointer;
-    margin: 0 1px;       /* 별끼리의 미세한 간격 */
-    display: inline-block;
-}
+.star-rating input { display: none; } /* 라디오 버튼 숨기기 */
 
-/* 4. 마우스 올리거나 체크 시 색상 (기존 유지) */
-.star-rating :checked ~ label,
+.star-rating input:checked ~ label,
 .star-rating label:hover,
 .star-rating label:hover ~ label {
-    color: #ffb800;
+    color: #ffcc00; /* 노란색 */
 }
-
-.star-rating input { display: none; } /* 실제 라디오 버튼은 숨김 */
 
 /* 디스커스 박스의 높이를 조절해서 하단 광고 노출 최소화 */
 #disqus_thread {
@@ -261,4 +257,40 @@ iframe[src*="disqus.com/embed/comments"] {
     15% { opacity: 1; bottom: 50px; }
     85% { opacity: 1; bottom: 50px; }
     100% { opacity: 0; bottom: 30px; }
+}
+
+/* 좋아요를 눌렀을 때 적용될 클래스 */
+.liked #like-icon {
+    color: #ff0558 !important; /* 왓챠 핑크 */
+    transform: scale(1.2);
+}
+.like-section {
+    vertical-align: middle; /* 별점 텍스트와 높이를 맞춤 */
+}
+/* 좋아요 활성화 상태 */
+.liked #like-icon {
+    color: #ff0558 !important; /* 왓챠 핑크 */
+    content: "♥"; /* 비어있는 하트를 채워진 하트로 변경 */
+}
+
+.liked #like-count {
+    color: #ff0558 !important;
+}
+
+/* 하트 애니메이션 효과 */
+#like-icon {
+    display: inline-block;
+    user-select: none; /* 텍스트 드래그 방지 */
+}
+
+/* 클릭 시 튕기는 효과 (Scale) */
+.like-bounce {
+    animation: like-anim 0.4s linear;
+}
+
+@keyframes like-anim {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.3); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
 }
