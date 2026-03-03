@@ -146,7 +146,7 @@ body {
 
 /* Disqus를 감싸는 박스 디자인 */
 #disqus_thread {
-    margin-top: 50px;
+    margin-top: 0px;
     margin-bottom: 50px;
     padding: 30px;
     background-color: #ffffff; /* 흰색 배경 */
