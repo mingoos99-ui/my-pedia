@@ -163,5 +163,5 @@ body {
 
 /* 디스커스 내부의 특정 로고나 링크 숨기기 시도 (일부 적용) */
 iframe[src*="disqus.com/embed/comments"] {
-    margin-bottom: -54px !important; /* 하단 로고 영역만큼 위로 올림 */
+    margin-bottom: -100px !important; /* 하단 로고 영역만큼 위로 올림 */
 }
