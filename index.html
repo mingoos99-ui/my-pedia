@@ -685,42 +685,41 @@
         </div>
     </div>
 
-    <div class="card-comment-area" style="margin-top: 0px; border-top: 1px solid #eee; padding-top: 5px;">
-        <div id="comment-toggle-btn" onclick="toggleComments()" style="cursor: pointer; display: inline-block;">
-            <span id="toggle-text" style="color: #ff0558; font-weight: bold; font-size: 14px;">💬 코멘트 작성하기</span>
-        </div>
+<div class="card-comment-area" style="margin-top: 0px; border-top: 1px solid #eee; padding-top: 5px;">
+    <div id="comment-toggle-btn" onclick="toggleComments()" style="cursor: pointer; display: inline-block;">
+        <span id="toggle-text" style="color: #ff0558; font-weight: bold; font-size: 14px;">💬 코멘트 작성하기</span>
+    </div>
 
-        <div id="disqus_wrapper" style="max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; margin-top: 0;">
-            <div style="padding-top: 5px;">
-                <div id="disqus_thread"></div>
-            </div>
+    <div id="disqus_wrapper" style="max-height: 0; overflow-y: auto; overflow-x: hidden; transition: max-height 0.5s ease-in-out; margin-top: 0; box-sizing: border-box;">
+        <div id="disqus_container" style="padding: 15px;"> 
+            <div id="disqus_thread"></div>
         </div>
     </div>
 </div>
 
 <script>
-    // Disqus 로드 스크립트
-    (function() { 
-        var d = document, s = d.createElement('script');
-        s.src = 'https://donginji-pedia.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+(function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://donginji-pedia.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
 
-    // 부드러운 토글 함수
 function toggleComments() {
     var wrapper = document.getElementById('disqus_wrapper');
     var text = document.getElementById('toggle-text');
     
     if (wrapper.style.maxHeight === '0px' || wrapper.style.maxHeight === '') {
-        // ✅ 700px이 넘어가면 그때부터 스크롤이 생깁니다.
         wrapper.style.maxHeight = '700px'; 
         wrapper.style.marginTop = '15px';
-        wrapper.style.border = '1px solid #eee'; // 영역 구분선
+        wrapper.style.border = '1px solid #eee'; 
+        wrapper.style.borderRadius = '8px'; // 테두리 모서리도 둥글게 하면 더 예뻐요!
         text.innerText = '💬 코멘트창 닫기';
+        
+        // 스크롤 이동
         setTimeout(function() {
             wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100); 
+        }, 300); // 애니메이션이 절반쯤 진행됐을 때 이동하는 게 더 자연스러워 300ms로 조정했습니다.
     } else {
         wrapper.style.maxHeight = '0px';
         wrapper.style.marginTop = '0px';
